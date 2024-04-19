@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.house_maid_div {
+    border: 1px solid black;
+    width: 100%;
+    height: 50vh;
+}
+
+.house_maid {
+    font-size: 8px
+}
+
+.house_maid_icons {
+    font-size: 4rem;
+    color: black;
+}
+
+.maid_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.MuiAutocomplete-hasPopupIcon.css-84nhb1-MuiAutocomplete-root .MuiOutlinedInput-root {
+    font-size: 1rem;
+}
+
+.css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root {
+    font-size: 2rem;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    color: var(--purple);
+}
+
+.maid_input input {
+    height: 50px;
+    outline: none;
+    width: 40%;
+    border-radius: 6px;
+    border: 1px solid black;padding-left: 10px;font-size: 2rem;
+    margin: 20px 0px 20px 0px;
+}
+
+.maid_input input::placeholder {
+    font-size: 2rem;
+    padding-left: 10px;
+    /* margin-left: 20px; */
+}
+
+.inner_maid_div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+/* .inner_maid_div b{font-size: 3rem;} */
+.house_maid{font-size: 2rem;height: 40px;}

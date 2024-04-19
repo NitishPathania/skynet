@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    height: 300px;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+.imageUser,
+.entryName,
+.houseDetails,
+.purposeData,
+.aadharImageUser {
+    max-width: 100px;
+
+}
+
+.imageUserImg {
+    max-width: 150px;;height: 100px;
+    /* margin-left: 3.5rem; */
+}
+
+.delBtn button {
+    padding: 7px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--purple);
+    border-radius: 10px;
+}
+.non_verify_user{padding: 1.5rem;font-size: 2rem;}
+.not_user_yet{font-size: 1rem;;}
+@media (max-width: 1000px) {
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        overflow-x: auto;
+    }
+}
