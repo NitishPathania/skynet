@@ -39,8 +39,8 @@ const GetNonVerifyUser = () => {
   
   
   return (
-    <div>
-      <h2  className='non_verify_user'>NonVerify User Data</h2>
+    <div className='table_div'>
+      <h2  className='non_verify_user'>Non-Verify User Data</h2>
       <table>
         <thead>
           <tr>

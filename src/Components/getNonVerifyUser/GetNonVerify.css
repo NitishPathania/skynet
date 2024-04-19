@@ -9,6 +9,7 @@ table {
     border-collapse: collapse;
     height: 300px;
 }
+.table_div{margin: 2rem;}
 
 th,
 td {
@@ -39,7 +40,7 @@ td {
     background-color: var(--purple);
     border-radius: 10px;
 }
-.non_verify_user{padding: 1.5rem;font-size: 2rem;}
+.non_verify_user{padding-bottom: 2rem;font-size: 2rem;}
 .not_user_yet{font-size: 1rem;;}
 @media (max-width: 1000px) {
     table {

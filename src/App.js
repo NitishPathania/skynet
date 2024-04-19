@@ -20,10 +20,10 @@ function App() {
   
   return (
     <div className="App">
-      {/* <div className="screen"> */}
+       <BrowserRouter>
+      
     <Navbar language={language}  handleLanguageChange={handleLanguageChange} />
-    {/* </div> */}
-     <BrowserRouter>
+    
     
       <Routes>
           

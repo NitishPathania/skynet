@@ -2,6 +2,7 @@ import React from 'react';
 import '../EntryPerson/EntryPerson.css';
 import { userData } from "../PersonIdentify/Data";
 import { useNavigate } from "react-router-dom";
+import Navbar from '../Navbar/Navbar';
 
 const EnteryPerson = ({ language }) => {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const EnteryPerson = ({ language }) => {
 
   return (
     <>
+    {/* <Navbar/> */}
       <h1 className='entry_heading'>
         {language === 'hindi' ? 'Type of Entry' : 'प्रवेश के प्रकार'}
       </h1>

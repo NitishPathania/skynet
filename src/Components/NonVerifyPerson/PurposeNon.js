@@ -14,6 +14,7 @@ const PurposeNon = ({language}) => {
   }
   return (
     <>
+    {/* <Navbar/> */}
    <div className="screen">
   
     <h1 className='purpose_heading'>{language === 'hindi' ? "Purpose of Visit ":"आने का उद्देश्य"}

@@ -1,13 +1,17 @@
 import React from 'react';
 import '../Navbar/Navbar.css';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ language, handleLanguageChange }) => {
+
+  const navigate = useNavigate()
+
   return (
     <div>
       
       <div className="inner_screen_div allColor">
 
-        <h5>SkyNetEnclave</h5>
+        <h5 onClick={()=>navigate('/')}>SkyNetEnclave</h5>
 
         <div className="switch">
           <input

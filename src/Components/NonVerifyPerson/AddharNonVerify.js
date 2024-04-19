@@ -8,31 +8,37 @@ import { api } from "../Api/Api";
 import axios from "axios";
 import Webcam from "react-webcam";
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2"
 const AddharNonVerify = ({ language }) => {
-  const  navigate= useNavigate()
+  const userPhoto="Images/photologo"
+  const aadharPhoto="Images/aadharlogo"
+  const userImage = localStorage.getItem("userImage");
+  const navigate = useNavigate()
   const webcamRef = useRef(null); // create a webcam reference
   const webcamRefaadhar = useRef(null)
-  const [imgSrc, setImgSrc] = useState("Images/photologo"); // initialize it
-  const [imgSrcAadhar, setImgSrcAadhar] = useState("Images/aadharlogo")
-
-
+  const [imgSrc, setImgSrc] = useState(userPhoto); // initialize it
+  const [imgSrcAadhar, setImgSrcAadhar] = useState(aadharPhoto)
+  const [retakeUserPhoto, setRetakeUserPhoto] = useState("Take Photo")
+  const [retakeAadharPhoto, setRetakeAadharPhoto] = useState("Capture Aadhar Photo")
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
     setImgSrc(imageSrc);
-    localStorage.setItem("userImage", imageSrc)
+    // localStorage.setItem("userImage", imageSrc)
     console.log(imageSrc)
   }, [webcamRef, setImgSrc]);
 
   const retake = () => {
     setImgSrc(null);
+    setRetakeUserPhoto("Retake Photo")
   };
   const retakeAadhar = () => {
     setImgSrcAadhar(null)
+    setRetakeAadharPhoto("Retake Aadhar Photo")
   }
   const captureAadhar = useCallback(() => {
     const imageSrc = webcamRefaadhar.current.getScreenshot();
     setImgSrcAadhar(imageSrc);
-    localStorage.setItem("aadharImage", imageSrc)
+    // localStorage.setItem("aadharImage", imageSrc)
   }, [webcamRefaadhar, setImgSrcAadhar]);
 
   const handleAadharDetails = () => {
@@ -40,26 +46,40 @@ const AddharNonVerify = ({ language }) => {
     const entryName = JSON.parse(localStorage.getItem("entryName"));
     const purposeData = JSON.parse(localStorage.getItem("purposeData"));
     const houseDetails = JSON.parse(localStorage.getItem("houseDetails"));
-    const userImage = localStorage.getItem("userImage");
-    const aadharImage = localStorage.getItem("aadharImage");
+    // const userImage = localStorage.getItem("userImage");
+    // const aadharImage = localStorage.getItem("aadharImage");
+
     if (!entryName) {
       toast.warn(language === 'hindi' ? "Please Select Entry Type" : "कृपया प्रवेश प्रकार चुनें");
     } else if (!purposeData) {
       toast.warn(language === 'hindi' ? "Select the Purpose" : "उद्देश्य चुनें")
-    }
-    else if(! houseDetails ){
+    } else if (!houseDetails) {
       toast.warn(language === 'hindi' ? "Selected House Details" : "घर के विवरण चुने गए ")
+    }
 
-    }
-    else if(!userImage){
-      toast.warn( language === 'hindi' ? "Please Click the Photo" : "कृपया फोटो क्लिक करें")
-    }
-    else if(!aadharImage){
-      toast.warn(language === 'hindi' ? "Please Click Aadhar Photo" : "कृपया आधार फोटो क्लिक करें")
-    }
-  
+ 
+  // else if (imgSrc==userPhoto) {
+  //     // setRetakePhoto(true)
+  //     toast.warn(language === 'hindi' ? "Please Click the Photo" : "कृपया फोटो क्लिक करें")
+  //   } else if (imgSrcAadhar==aadharPhoto) {
+  //     toast.warn(language === 'hindi' ? "Please Click Aadhar Photo" : "कृपया आधार फोटो क्लिक करें")
+  //   }
+
     else {
+      
+      localStorage.setItem("userImage", imgSrc)
+      localStorage.setItem("aadharImage", imgSrcAadhar)
+      const userImage = localStorage.getItem("userImage")
+      const aadharImage = localStorage.getItem("aadharImage")
+      if(!userImage){
+        toast.warn(language === 'hindi' ? "Please Click the Photo" : "कृपया फोटो क्लिक करें")
+      }
+      else if(!aadharImage ){
+        toast.warn(language === 'hindi' ? "Please Click Aadhar Photo" : "कृपया आधार फोटो क्लिक करें")
+      }
+ 
       const userDetails = {
+
         entryName,
         purposeData,
         houseDetails: {
@@ -70,29 +90,47 @@ const AddharNonVerify = ({ language }) => {
         aadharImage
       };
       localStorage.setItem("userDetails", JSON.stringify(userDetails));
-      const getData = JSON.parse(localStorage.getItem("userDetails"));
+      Swal.fire({
+        title: `${language === 'hindi' ? "Are you sure?" : "क्या आप सुनिश्चित हैं?"}`,
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonText: `${language === 'hindi' ? "Cancel" : "रद्द करें"}`,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: `${language === 'hindi' ? "Yes, submit it!" : "हां, इसे सबमिट करें!"}`
+
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios.post(`${api}nonVerify`, userDetails)
+            .then((res) => {
+              console.log('Response:', res.data);
+              toast.success(language === 'hindi' ? "Details added Successfully" : "विवरण सफलतापूर्वक जोड़ा गया!");
+              window.localStorage.clear();
+              setTimeout(() => {
+                navigate("/")
+              }, 3000);
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
 
 
 
-      axios.post(`${api}nonVerify`, getData)
-        .then((res) => {
-          console.log('Response:', res.data);
-          // Handle success response
-          toast.success("Details added Successfully");
-          window.localStorage.clear();
-          setTimeout(()=>{
-            navigate("/")
-          },3000)
-        
 
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-          // Handle error response
-        });
+        } else {
+
+
+          toast.warn(language === 'hindi' ? "Your Data is not submitted" : "आपके डेटा को सबमिट नहीं किया गया है।");
+
+        }
+      });
+
+
+
+
+
     }
-  };
-
+  }
 
   return (
     <div>
@@ -114,7 +152,9 @@ const AddharNonVerify = ({ language }) => {
             <div className='verification_content'>
 
               {imgSrc ? (
-                <p onClick={retake}>{language === 'hindi' ? "Take Photo" : "फोटो लें "}</p>
+                <p onClick={retake}>
+                  {language === 'hindi' ? <>{retakeUserPhoto}</> : "फोटो लें "}
+                </p>
               ) : (
                 <p onClick={capture}> {language === 'hindi' ? " Capture Photo " : "तस्वीर लें"}</p>
               )
@@ -136,7 +176,7 @@ const AddharNonVerify = ({ language }) => {
             <div className='verification_aadhar_content' >
 
               {imgSrcAadhar ? (
-                <p onClick={retakeAadhar}>{language === 'hindi' ? "Take Photo" : "फोटो लें "}</p>
+                <p onClick={retakeAadhar}>{language === 'hindi' ? <>{retakeAadharPhoto}</> : "फोटो लें "}</p>
               ) : (
                 <p onClick={captureAadhar}> {language === 'hindi' ? "Capture Photo" : "आधार कार्ड की तस्वीर लें"}</p>
               )
@@ -156,7 +196,7 @@ const AddharNonVerify = ({ language }) => {
         </div>
 
       </div>
-     
+
       <ToastContainer />
       <Button />
     </div>
@@ -164,4 +204,7 @@ const AddharNonVerify = ({ language }) => {
 }
 
 export default AddharNonVerify;
+
+
+
 
