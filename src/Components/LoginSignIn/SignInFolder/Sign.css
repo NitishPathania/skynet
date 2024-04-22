@@ -1,0 +1,47 @@
+*{box-sizing: border-box;margin: 0px;padding: 0px;}
+.signup-form-container {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;flex-direction: column;justify-content: center;align-items: center;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input[type='text'],
+  input[type='password'] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  button[type='submit'] {
+    background-color:var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* button[type='submit']:hover {
+    background-color: #0056b3;
+  } */
+  .error-message{color: red;}

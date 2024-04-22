@@ -50,7 +50,7 @@ const Verify = ({ language }) => {
         </h1>
         <div className='maid_input'>
           <input
-            type="text"
+            type="text" className='maid_input_bottom'
             placeholder={language === 'hindi' ? "Search Maid Name" : "नाम"}
             onChange={handleInputChange}
           />

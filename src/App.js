@@ -10,6 +10,9 @@ import AddharNonVerify from './Components/NonVerifyPerson/AddharNonVerify';
 import { useState } from 'react';
 // import NonVerifyUser from '../../Server/models/NonVerifyUser';
 import GetNonVerifyUser from './Components/getNonVerifyUser/GetNonVerifyUser';
+import Sign from './Components/LoginSignIn/SignInFolder/Sign';
+import Login from './Components/LoginSignIn/LoginFolder/Login';
+import Protected from './Components/ProtectedRoute.js/Protected';
 function App() {
   const [language, setLanguage] = useState('english');
 
@@ -32,7 +35,12 @@ function App() {
           <Route path="/verify" element={<Verify language={language} />}/>
           <Route path="/nonHouseDetails" element={<HouseDetails language={language}/>}/>
           <Route path="/nonAadharCard" element={<AddharNonVerify language={language}/>}/>
+          <Route element={<Protected/>}>
           <Route path="/nonVerifyUser" element={<GetNonVerifyUser language={language}   />} />
+          </Route>
+          <Route path="/signUp" element={<Sign language={language}   />} />
+          <Route path="/login" element={<Login language={language}   />} />
+         
          
         
     

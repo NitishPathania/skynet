@@ -9,14 +9,17 @@ table {
     border-collapse: collapse;
     height: 300px;
 }
-.table_div{margin: 2rem;}
+
+.table_div {
+    margin: 2rem;
+}
 
 th,
 td {
     border: 1px solid #dddddd;
     padding: 8px;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .imageUser,
@@ -29,23 +32,88 @@ td {
 }
 
 .imageUserImg {
-    max-width: 150px;;height: 100px;
+    max-width: 150px;
+    ;
+    height: 100px;
     /* margin-left: 3.5rem; */
 }
 
 .delBtn button {
     padding: 7px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: white;
     background-color: var(--purple);
     border-radius: 10px;
 }
-.non_verify_user{padding-bottom: 2rem;font-size: 2rem;}
-.not_user_yet{font-size: 1rem;;}
+
+.non_verify_user {
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.not_user_yet {
+    font-size: 1rem;
+    ;
+}
+
+.top_heading_div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    height: 100px
+}
+
+.top_heading_div button {
+    margin-right: 10px;
+    padding: 10px 10px;
+    font-size: 1rem;
+    background-color: var(--purple);
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius:5px;
+
+}
+
+/* .pagination{border: 1px solid black;} */
 @media (max-width: 1000px) {
     table {
         border-collapse: collapse;
         width: 100%;
         overflow-x: auto;
     }
+}
+
+/* GetNonVerify.css */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
+
+.pagination button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    margin: 0 10px;
+    font-weight: bold;
 }

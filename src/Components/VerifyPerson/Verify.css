@@ -24,6 +24,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1rem;outline: var(--purple);
+    /* border: 1px solid black; */
 }
 
 .MuiAutocomplete-hasPopupIcon.css-84nhb1-MuiAutocomplete-root .MuiOutlinedInput-root {
@@ -38,18 +39,18 @@
     color: var(--purple);
 }
 
-.maid_input input {
+.maid_input_bottom {
     height: 50px;
     outline: none;
-    width: 40%;
+    width: 55% !important;
     border-radius: 6px;
-    border: 1px solid black;padding-left: 10px;font-size: 2rem;
+  padding-left: 10px;font-size: 1.5rem;
     margin: 20px 0px 20px 0px;
 }
 
 .maid_input input::placeholder {
-    font-size: 2rem;
-    padding-left: 10px;
+    font-size: 1.5rem;
+    /* padding-left: 10px; */
     /* margin-left: 20px; */
 }
 
