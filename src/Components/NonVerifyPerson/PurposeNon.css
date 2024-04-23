@@ -30,7 +30,7 @@
 }
 
 .purpose_b {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
 }
 
 .purpose_checkbox {
@@ -77,7 +77,7 @@
 
 .owner {
     color: black;
-    font-size: 1.3rem;
+    font-size: 1.6rem !important;
     height: 30px;
     width: 100%;
     padding-top: 3px;
@@ -104,7 +104,7 @@
 }
 
 .house_numbering {
-    font-size: 1.3rem !important;
+    font-size: 1.6rem !important;
     height: 30px;
     max-height: 30px;
     ;

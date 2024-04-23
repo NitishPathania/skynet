@@ -8,7 +8,7 @@ import axios from 'axios';
 import { api } from '../../Api/Api';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-const Login = () => {
+const Login = ({language}) => {
   const navigate = useNavigate()
   const initialValues = {
 
@@ -30,7 +30,7 @@ const Login = () => {
     try {
       const res = await axios.post(`${api}login`, values);
      
-      toast.success(res.data.msg);
+      toast.success( `${language === 'hindi' ? `${res.data.msg}` : " उपयोगकर्ता लॉगिन सफलतापूर्वक"}`);
       const token = {
         userPhoneNo: values.userPhoneNo,
         password: values.password
@@ -44,13 +44,13 @@ const Login = () => {
      
     }
     catch (err) {
-      toast.error(" Invalid phone number or password");
+      toast.error(`${language === 'hindi' ? "Invalid phone number or password" : "अमान्य फोन नंबर या पासवर्ड"}`);
     }
 
   };
   return (
     <div className="signup-form-container">
-      <h2>Login</h2>
+      <h2>{language === 'hindi' ? "Login" : "लॉगिन"}</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -60,19 +60,19 @@ const Login = () => {
           <Form className="signup-form">
 
             <div className="form-group">
-              <label htmlFor="userPhoneNo">PhoneNo</label>
+              <label htmlFor="userPhoneNo">{language === 'hindi' ? "PhoneNo" : "फ़ोन नंबर"}</label>
               <Field type="text" id="userPhoneNo" name="userPhoneNo" />
               <ErrorMessage name="userPhoneNo" component="div" className="error-message" />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">{language === 'hindi' ? "Password" : "पासवर्ड"}</label>
               <Field type="password" id="password" name="password" />
               <ErrorMessage name="password" component="div" className="error-message" />
             </div>
-            <button type="submit" disabled={isSubmitting}>Login</button>
+            <button type="submit" disabled={isSubmitting}>{language === 'hindi' ? "Login" : "लॉगिन"}</button>
             <div className='bottom_content'>
-            <p>
-              New User ?<Link to="/signUp">Register now</Link>
+            <p>                                                    
+            {language === 'hindi' ? " New User ?" :"नया उपयोगकर्ता?"} <Link to="/signUp"> {language === 'hindi' ? "Register now" :"अब रजिस्टर करें"} </Link>
             </p>
             </div>
           </Form>
