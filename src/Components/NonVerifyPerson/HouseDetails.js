@@ -46,7 +46,7 @@ const HouseDetails = ({ language }) => {
                 return (
                   <>
                     <div className="inner_purpose_data_div" onClick={() => handleAadharCard(item. houseNo, item.ownerNameEnglish)}>
-                      <h6 className='icons_house'>{item.icons}</h6>
+                      <h6 className='icons_house'>🏠</h6>
                       <span className="house_numbering" key={index}><b>{language === 'hindi' ? "House No." : "घर का नंबर."}</b>{item.
                         houseNo
                       }</span>

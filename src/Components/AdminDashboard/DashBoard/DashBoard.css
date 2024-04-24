@@ -4,12 +4,24 @@
     padding: 0px;
 }
 
+.main_admin {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.admin_content {
+    height:fit-content;
+    width: 100% !important;
+    /* border: 1px solid black; */
+}
 table {
     border: 100% !important;
     border-collapse: collapse;
     height: 300px;margin: 2rem;
+   
 }
-
+.tabel_div_two{width: 90%;}
 /* .table_div {
     margin: 1rem;
 } */
@@ -75,45 +87,7 @@ td {
     border-radius:5px;
 
 }
-
-/* .pagination{border: 1px solid black;} */
-@media (max-width: 1000px) {
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        overflow-x: auto;
-    }
-}
-
-/* GetNonVerify.css */
-
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.pagination button {
-    padding: 8px 12px;
-    margin: 0 5px;
-    background-color: var(--purple);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.pagination button:hover {
-    background-color: #0056b3;
-}
-
-.pagination button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.pagination span {
-    margin: 0 10px;
-    font-weight: bold;
-}
+.table_div{width: 100% !important;}
+.modal_Edit_button{width: 3% !important;height: 15px;border-radius: 10px;}
+.entryType{font-size: 1.6rem;font-weight: 600;margin: 1rem;}
+#entryType{margin: 1rem;}

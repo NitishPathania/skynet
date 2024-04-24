@@ -7,7 +7,7 @@ const Navbar = ({ language, handleLanguageChange }) => {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <div className='outer_navbar'>
       
       <div className="inner_screen_div allColor">
 

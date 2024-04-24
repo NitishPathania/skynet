@@ -39,7 +39,7 @@ const Login = ({language}) => {
       localStorage.setItem('token', JSON.stringify(token));
 
       setTimeout(()=>{
-        navigate("/nonVerifyUser")
+        navigate("/admin")
       },1500)
      
     }

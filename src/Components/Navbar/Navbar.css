@@ -3,7 +3,7 @@
     margin: 0px;
     padding: 0px;
 }
-
+/* .outer_navbar{position: relative;} */
 .inner_screen_div {
     display: flex;
     align-items: center;

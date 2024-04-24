@@ -60,29 +60,12 @@ const GetNonVerifyUser = () => {
   };
 
 
-   const handleLogout=()=>{
-    Swal.fire({
-      title: "Are you sure?",
-    
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        
-        localStorage.clear()
-        navigate("/login")
-      }
-    });
-        
-   }
+ 
   return (
     <div className='table_div'>
       <div className='top_heading_div'>
-      <h2 className='non_verify_user'>Non-Verify User Data</h2>
-      <button onClick={handleLogout}>LogOut</button>
+      <h2 className='non_verify_user'>Data Tabel Non-Verify</h2>
+      
       </div>
       <table>
         <thead>

@@ -15,7 +15,7 @@
 }
 
 .house_maid_icons {
-    font-size: 4rem;
+    font-size: 3rem;
     color: black;
 }
 
@@ -26,7 +26,7 @@
     font-size: 1rem;outline: var(--purple);
     /* border: 1px solid black; */
 }
-
+.inner_purpose_data_div{background-color: var(--purple);}
 .MuiAutocomplete-hasPopupIcon.css-84nhb1-MuiAutocomplete-root .MuiOutlinedInput-root {
     font-size: 1rem;
 }
@@ -62,5 +62,7 @@
     height: 100%;
     justify-content: center;
 }
+.inner_maid_div b{color: white;}
+.inner_maid_div span{color: white;}
 /* .inner_maid_div b{font-size: 3rem;} */
-.house_maid{font-size: 2rem;height: 40px;}
+.house_maid{font-size: 1.8rem;height: 40px;padding-top: 5px;}
